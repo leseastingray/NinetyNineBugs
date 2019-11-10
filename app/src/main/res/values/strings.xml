@@ -3,10 +3,11 @@
     <string name="second_activity">Debugging</string>
 
     <string name="bug_number">99 Bugs on the Wall</string>
+    <string name="purple_beetle">Purple Beetle</string>
     <string name="take_one_button">Take One Down</string>
     <string name="take_two_button">Take Two Down</string>
 
     <string name="bug_out_button">Bug Out</string>
     <string name="patch_it_button">Patch It Around</string>
-    <string name="debug_bugs">99 Bugs</string>
+    <string name="debug_bugs">Fix the Bugs!</string>
 </resources>

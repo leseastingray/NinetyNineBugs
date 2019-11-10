@@ -13,6 +13,7 @@ public class SecondActivity extends AppCompatActivity {
     // variables
     public Integer newBugTotal = 99;
     public Integer newBugNumber = 0;
+    public String bugString = "";
 
     /* ------------- Activity Callback Methods --------------*/
     @Override
@@ -37,18 +38,12 @@ public class SecondActivity extends AppCompatActivity {
         Intent intent = getIntent();
         // Get extras: previous bug total, bug number
         newBugTotal = intent.getExtras().getInt(MainActivity.BUG_TOTAL);
-        String bugString = intent.getExtras().getString(MainActivity.BUG);
+        newBugNumber = intent.getExtras().getInt(MainActivity.BUG_NUMBER);
 
-        // if bug number == 1
-        if (bugString == "1")
-        {
-            newBugTotal -= 1;
-        }
-        else
-        {
-            newBugTotal -= 2;
-        }
-        Toast.makeText(this, Integer.toString(newBugTotal), Toast.LENGTH_SHORT).show();
+
+        newBugTotal -= newBugNumber;
+
+        //Toast.makeText(this, Integer.toString(newBugTotal), Toast.LENGTH_SHORT).show();
     }
 
     public void bugOut(View v)

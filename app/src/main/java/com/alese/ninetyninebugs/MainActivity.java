@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     // Other variables
     public Integer bugTotal = 99;
     public Integer bugNumber = 1;
-    public static final String BUG = "1";
+    public static final String BUG_NUMBER = "bugNumber";
     public static final String BUG_TOTAL = "bugTotal";
     public static final int REQUEST_1 = 1;
 
@@ -46,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
     public void takeOne(View v)
     {
         bugNumber = 1;
-        Toast.makeText(this, Integer.toString(bugNumber), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, Integer.toString(bugNumber), Toast.LENGTH_SHORT).show();
         // Start second activity and send info from main activity
         Intent intent = new Intent(this, SecondActivity.class);
         // Sends data to 2nd activity
-        intent.putExtra(BUG, bugNumber);
+        intent.putExtra(BUG_NUMBER, bugNumber);
         intent.putExtra(BUG_TOTAL, bugTotal);
         startActivityForResult(intent, REQUEST_1);
     }
@@ -58,11 +58,11 @@ public class MainActivity extends AppCompatActivity {
     public void takeTwo(View v)
     {
         bugNumber = 2;
-        Toast.makeText(this, Integer.toString(bugNumber), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, Integer.toString(bugNumber), Toast.LENGTH_SHORT).show();
         // Start second activity and send info from main activity
         Intent intent = new Intent(this, SecondActivity.class);
         // Sends data to 2nd activity
-        intent.putExtra(BUG, bugNumber);
+        intent.putExtra(BUG_NUMBER, bugNumber);
         intent.putExtra(BUG_TOTAL, bugTotal);
         startActivityForResult(intent, REQUEST_1);
     }
