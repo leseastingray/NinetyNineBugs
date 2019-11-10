@@ -15,8 +15,10 @@ public class MainActivity extends AppCompatActivity {
     Button takeOneButton;
 
     // Other variables
-    Integer bugNumber = 99;
-    public static final String BUGS = "bugs";
+    public Integer bugTotal = 99;
+    public Integer bugNumber = 1;
+    public static final String BUG = "1";
+    public static final String BUG_TOTAL = "bugTotal";
     public static final int REQUEST_1 = 1;
 
     /* ------------- Activity Callback Methods --------------*/
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onActivityResult(requestCode, resultCode, data);
         // manipulate bugNumberTextView
-        bugNumberTextView.setText(data.getStringExtra(BUGS) + " Bugs on the Wall");
+        bugNumberTextView.setText(data.getStringExtra(BUG_TOTAL) + " Bugs on the Wall");
     }
 
     /* ------------- Event Handlers --------------*/
@@ -43,11 +45,25 @@ public class MainActivity extends AppCompatActivity {
     // Click handler for takeOneButton, referenced in layout/activity_main.xml
     public void takeOne(View v)
     {
+        bugNumber = 1;
         Toast.makeText(this, Integer.toString(bugNumber), Toast.LENGTH_SHORT).show();
         // Start second activity and send info from main activity
         Intent intent = new Intent(this, SecondActivity.class);
-        // Sends data to 2nd activity, turns bugNumber to a string
-        intent.putExtra(BUGS, Integer.toString(bugNumber));
+        // Sends data to 2nd activity
+        intent.putExtra(BUG, bugNumber);
+        intent.putExtra(BUG_TOTAL, bugTotal);
+        startActivityForResult(intent, REQUEST_1);
+    }
+    // Click handler for takeTwoButton, referenced in layout/activity_main.xml
+    public void takeTwo(View v)
+    {
+        bugNumber = 2;
+        Toast.makeText(this, Integer.toString(bugNumber), Toast.LENGTH_SHORT).show();
+        // Start second activity and send info from main activity
+        Intent intent = new Intent(this, SecondActivity.class);
+        // Sends data to 2nd activity
+        intent.putExtra(BUG, bugNumber);
+        intent.putExtra(BUG_TOTAL, bugTotal);
         startActivityForResult(intent, REQUEST_1);
     }
 }

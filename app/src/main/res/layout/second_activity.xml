@@ -35,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="182dp"
+        android:onClick="patchBug"
         android:text="@string/patch_it_button"
         app:layout_constraintBottom_toTopOf="@+id/debugBugsTextView"
         app:layout_constraintEnd_toEndOf="parent"
