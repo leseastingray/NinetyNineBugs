@@ -32,7 +32,7 @@ public class SecondActivity extends AppCompatActivity {
 
     /* ------------- Event Handlers --------------*/
     // Method for patching bug (subtracting it from total)
-    public void patchBug(View v)
+    public int patchBug(View v)
     {
         // Get intent from MainActivity
         Intent intent = getIntent();
@@ -40,16 +40,18 @@ public class SecondActivity extends AppCompatActivity {
         newBugTotal = intent.getExtras().getInt(MainActivity.BUG_TOTAL);
         newBugNumber = intent.getExtras().getInt(MainActivity.BUG_NUMBER);
 
+        // Display toast to show patching
+        Toast.makeText(this, "Patching...", Toast.LENGTH_SHORT).show();
 
+        // subtract newBugNumber (1 or 2) from newBugTotal to update newBugTotal
         newBugTotal -= newBugNumber;
-
-        //Toast.makeText(this, Integer.toString(newBugTotal), Toast.LENGTH_SHORT).show();
+        return newBugTotal;
     }
 
     public void bugOut(View v)
     {
         Intent bugs = new Intent(this, MainActivity.class);
-        bugs.putExtra(MainActivity.BUG_TOTAL, Integer.toString(newBugTotal));
+        bugs.putExtra(MainActivity.BUG_TOTAL, newBugTotal);
         setResult(RESULT_OK, bugs);
         finish();
     }

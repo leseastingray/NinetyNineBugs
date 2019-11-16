@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     // Other variables
     public Integer bugTotal = 99;
     public Integer bugNumber = 1;
+    public String bugTotalString ="";
     public static final String BUG_NUMBER = "bugNumber";
     public static final String BUG_TOTAL = "bugTotal";
     public static final int REQUEST_1 = 1;
@@ -36,8 +37,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
+
+        // extract bugTotal from intent data
+        bugTotal = data.getIntExtra(BUG_TOTAL, bugTotal);
+        bugTotalString = Integer.toString(bugTotal);
+
         // manipulate bugNumberTextView
-        bugNumberTextView.setText(data.getStringExtra(BUG_TOTAL) + " Bugs on the Wall");
+        bugNumberTextView.setText((bugTotalString) + " Bugs on the Wall");
     }
 
     /* ------------- Event Handlers --------------*/
